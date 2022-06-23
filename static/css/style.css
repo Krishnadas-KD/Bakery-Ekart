@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+.containerview {
+    display: flex;
+    max-width: 750px;
+    background: #fff;
+    border-radius: 12px;
+    justify-content: space-between;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.containerview::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    clip-path: circle(65% at right 35%);
+    background-image: linear-gradient( 135deg, #fd9bb0 10%, #F6416C 100%);
+}
+
+.containerview .boxview.one1 {
+    padding: 35px 5px 0px 35px;
+}
+
+.boxview.one1 .details1 .topic1 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.boxview.one1 .details1 p {
+    color: #737373;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.boxview.one1 .rating1 {
+    color: #fd9bb0;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.boxview.one1 .price-box1 {
+    margin-top: 16px;
+}
+
+.boxview.one1 .discount {
+    font-size: 20px;
+    margin: 10px 0 0 12px;
+    position: relative;
+    color: #737373;
+}
+
+.boxview.one1 .discount:before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100px;
+    background: #737373;
+    top: 50%;
+    left: -8px;
+}
+
+.boxview.one1 .price1 {
+    color: #fc6989;
+    font-size: 30px;
+}
+
+.boxview.one1 .button1 {
+    margin-top: 55px;
+}
+
+.boxview.one1 .button1 button {
+    outline: none;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    background: #00e6e6;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button1 button:hover {
+    transform: scale(0.98);
+}
+
+.containerview .boxview.two1 .image1 {
+    position: relative;
+    right: 0;
+    top: 0;
+    height: 340px;
+    width: 430px;
+}
+
+.image1 img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.containerview .boxview.two1 .image-boxview {
+    position: relative;
+    text-align: right;
+    right: 0;
+    bottom: 27px;
+}
+
+.boxview.two1 .image-boxview .info1 {
+    margin: 0 35px 0 0;
+}
+
+.boxview.two1 .info1 .brand1 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #c9032e;
+}
+
+.boxview.two1 .info1 .name1 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.boxview.two1 .info1 .shipping1 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+}
+
+.boxview.two1 .button2 {
+    margin: 17px 0;
+}
+
+.button2 button {
+    outline: none;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 12px;
+    padding: 8px 17px;
+    background: transparent;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+}

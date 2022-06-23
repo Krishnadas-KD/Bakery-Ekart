@@ -1,0 +1,144 @@
+{% extends 'store/main.html' %} {% load static %} {% block content %}
+
+<!--Slideshow starts here -->
+{% for product, range, nSlides in allProds %}
+<h5>{{product.0.category}}</h5>
+<div id="demo{{forloop.counter}}" class="carousel slide my-3" data-ride="carousel">
+    <ul class="carousel-indicators">
+        <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
+
+        {% for i in range %}
+        <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}"></li>
+        {% endfor %}
+    </ul>
+
+
+    <div class="container carousel-inner no-padding">
+
+        <div class="carousel-item active">
+            <div class="col-xs-2 col-sm-2 col-md-2">
+                <div class="card" style="width: 12rem;">
+                    <img src='{{product.0.imageURL}}' class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.0.product_name}}</h5>
+                        <p class="card-text">₹{{product.0.price}}</p>
+                        <div class="row">
+                            <button data-product="{{product.0.id}}" data-action="add" class="btn btn-primary add-btn update-cart">Add to Cart</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View</button>
+
+                            <div class="modal fade bd-example-modal-lg" style="padding-top: 100px;" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div style="width: 700px;height:400px; " class="modal-content">
+                                        <div class="containerview" style="width: 700px;height:400px;">
+                                            <div class="boxview one">
+                                                <div class="details">
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <div class="topic1">Description</div>
+                                                    <p>{{product.0.desc}}</p>
+                                                    </p>
+                                                    <div class="price-box1">
+                                                        <div class="price1">₹{{product.0.price}}</div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="boxview two" style="position:relative;margin-top: 60px; margin-right: 100px;">
+                                                <div class="image-boxview">
+                                                    <div class="image1">
+                                                        <img src="{{product.0.imageURL}}" alt="">
+                                                    </div>
+                                                    <div class="info1">
+                                                        <div class="brand1">Name:{{product.0.product_name}}</div>
+                                                        <div class="name1">Category: {{product.0.category}} </div>
+                                                        <div class="shipping1">Sub Category: {{product.0.subcategory}}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% for i in product|slice:"1:"%}
+            <div class="col-xs-2 col-sm-2 col-md-2">
+                <div class="card" style="width: 12rem;">
+                    <img src='{{i.imageURL}}' class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.product_name}}</h5>
+                        <p class="card-text">₹{{i.price}}</p>
+                        <div class="row">
+                            <button data-product="{{i.id}}" data-action="add" class="btn btn-primary add-btn update-cart">Add to Cart</button>
+
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View</button>
+
+                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="containerview">
+                                            <div class="boxview one">
+                                                <div class="details">
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <div class="topic1">Description</div>
+
+                                                    <p>{{i.desc}}</p>
+                                                    </p>
+                                                    <div class="price-box1">
+                                                        <div class="price1">₹{{i.price}}</div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="boxview two" style="position:relative;margin-top: 60px; margin-right: 100px;">
+                                                <div class="image-boxview">
+                                                    <div class="image1">
+                                                        <img src="{{i.imageURL}}" alt="">
+                                                    </div>
+                                                    <div class="info1">
+
+                                                        <div class="brand1">Name:{{i.product_name}}</div>
+                                                        <div class="name1">Category: {{i.category}} </div>
+                                                        <div class="shipping1">Sub Category: {{i.subcategory}}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:5 and forloop.counter > 0 and not forloop.last %}
+        </div>
+
+        <div class="carousel-item">
+            {% endif %} {% endfor %}
+        </div>
+
+    </div>
+    <!--Slideshow ends here -->
+
+</div>
+
+<!-- left and right controls for the slide -->
+<a class="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+</a>
+<a class="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+</a>
+{% endfor %} {% endblock content %}
